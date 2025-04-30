@@ -1,0 +1,27 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": false,
+
+    // ✅ Additions start here
+    "target": "ES6",                     // Modern JS target
+    "module": "commonjs",               // Node.js compatibility
+    "esModuleInterop": true,            // Allow default import from CommonJS
+    "outDir": "./dist"                  // Output directory for compiled JS
+  },
+  "include": ["src/**/*"],              // Include all TS files in src/
+  "exclude": ["node_modules", "dist"]   // Ignore these folders during compile
+}
