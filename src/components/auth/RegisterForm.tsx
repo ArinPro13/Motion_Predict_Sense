@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Card,
   CardContent,
@@ -11,14 +7,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useAuth } from "@/contexts/AuthContext";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useAuth } from "@/hooks/use-auth";
 import { useToast } from "@/hooks/use-toast";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    name: "",
+    full_name: "",
     age: "",
     height: "",
     weight: "",
@@ -37,7 +37,7 @@ const RegisterForm = () => {
     e.preventDefault();
 
     // Validate form data
-    if (!formData.email || !formData.password || !formData.name) {
+    if (!formData.email || !formData.password || !formData.full_name) {
       toast({
         title: "Error",
         description: "Please fill in all required fields",
@@ -65,10 +65,10 @@ const RegisterForm = () => {
       await register({
         email: formData.email,
         password: formData.password,
-        name: formData.name,
+        full_name: formData.full_name,
         age: Number(formData.age),
-        height: Number(formData.height),
-        weight: Number(formData.weight),
+        height: parseFloat(formData.height),
+        weight: parseFloat(formData.weight),
       });
 
       toast({
@@ -128,11 +128,11 @@ const RegisterForm = () => {
           <div className="space-y-2">
             <Label htmlFor="name">Full Name*</Label>
             <Input
-              id="name"
-              name="name"
+              id="full_name"
+              name="full_name"
               type="text"
               placeholder="Enter your full name"
-              value={formData.name}
+              value={formData.full_name}
               onChange={handleChange}
               disabled={isSubmitting}
               required

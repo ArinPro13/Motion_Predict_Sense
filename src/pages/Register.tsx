@@ -1,8 +1,7 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
 import RegisterForm from "@/components/auth/RegisterForm";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/hooks/use-auth";
 import { Activity } from "lucide-react";
+import { Navigate } from "react-router-dom";
 
 const Register = () => {
   const { isAuthenticated } = useAuth();

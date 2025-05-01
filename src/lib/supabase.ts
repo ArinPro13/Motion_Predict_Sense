@@ -7,7 +7,7 @@ const supabaseAnonKey =
 // Create a mock Supabase client for development when credentials are missing
 const createMockClient = () => {
   console.warn(
-    "Using mock Supabase client. Authentication features will not work.",
+    "Using mock Supabase client. Authentication features will not work."
   );
 
   return {
@@ -46,7 +46,7 @@ export const supabase =
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.error(
-    "Supabase environment variables are not set. Authentication features will use mock data.",
+    "Supabase environment variables are not set. Authentication features will use mock data."
   );
 }
 
@@ -54,7 +54,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
 export type UserProfile = {
   id: string;
   email: string;
-  name: string;
+  full_name: string;
   age: number;
   height: number;
   weight: number;
@@ -64,7 +64,7 @@ export type UserProfile = {
 // Optional: You can add methods here to interact with Supabase
 export const getUserProfile = async (userId: string) => {
   const { data, error } = await supabase
-    .from("user_profiles")
+    .from("profiles")
     .select("*")
     .eq("id", userId)
     .single();

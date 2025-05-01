@@ -1,4 +1,4 @@
-import type { UserProfile } from "@/lib/supabase";
+import { UserProfile } from "@/integrations/supabase/client";
 
 export type AuthContextType = {
   user: UserProfile | null;
@@ -12,7 +12,7 @@ export type AuthContextType = {
 export type RegisterData = {
   email: string;
   password: string;
-  name: string;
+  full_name: string;
   age: number;
   height: number;
   weight: number;

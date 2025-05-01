@@ -1,8 +1,7 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
-import Navbar from "@/components/layout/Navbar";
 import DataCollectionForm from "@/components/data-collection/DataCollectionForm";
-import { useAuth } from "@/contexts/AuthContext";
+import Navbar from "@/components/layout/Navbar";
+import { useAuth } from "@/hooks/use-auth";
+import { Navigate } from "react-router-dom";
 
 const DataCollectionPage = () => {
   const { isAuthenticated } = useAuth();

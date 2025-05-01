@@ -1,8 +1,7 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/contexts/AuthContext";
-import { Activity, User, LogOut } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
+import { Activity, LogOut, User } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -58,7 +57,9 @@ const Navbar = () => {
                       <div className="w-8 h-8 rounded-full flex items-center justify-center bg-primary/10">
                         <User className="h-4 w-4 text-primary" />
                       </div>
-                      <span className="text-sm font-medium">{user.name}</span>
+                      <span className="text-sm font-medium">
+                        {user.full_name}
+                      </span>
                     </div>
                   </div>
                   <Button

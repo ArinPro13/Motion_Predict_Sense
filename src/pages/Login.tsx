@@ -1,8 +1,7 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
 import LoginForm from "@/components/auth/LoginForm";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/hooks/use-auth";
 import { Activity } from "lucide-react";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
   const { isAuthenticated } = useAuth();

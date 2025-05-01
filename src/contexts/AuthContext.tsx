@@ -1,29 +1,21 @@
-import React, { createContext, useContext } from "react";
-import { useAuthState } from "@/hooks/use-auth-state";
 import { useAuthOperations } from "@/hooks/use-auth-operations";
+import { useAuthState } from "@/hooks/use-auth-state";
 import type { AuthContextType } from "@/types/auth";
+import React, { createContext } from "react";
 
 // Create the context
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(
+  undefined
+);
 
 // Provider component
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const {
-    user,
-    setUser,
-    isLoading,
-    setIsLoading,
-    isAuthenticated,
-    isMockMode,
-  } = useAuthState();
+  const { user, setUser, isLoading, setIsLoading, isAuthenticated } =
+    useAuthState();
 
-  const { login, register, logout } = useAuthOperations(
-    setUser,
-    setIsLoading,
-    isMockMode,
-  );
+  const { login, register, logout } = useAuthOperations(setUser, setIsLoading);
 
   const value = {
     user,
@@ -35,13 +27,4 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-};
-
-// Custom hook for using auth context
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
 };

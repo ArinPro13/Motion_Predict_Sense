@@ -1,8 +1,8 @@
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/use-auth";
+import { Activity, Brain, ChevronRight, Database } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { useAuth } from "@/contexts/AuthContext";
-import { Activity, Database, Brain, ChevronRight } from "lucide-react";
 
 const Index = () => {
   const { isAuthenticated } = useAuth();

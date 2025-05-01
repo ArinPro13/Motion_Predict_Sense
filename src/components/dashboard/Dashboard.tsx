@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,9 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { useAuth } from "@/contexts/AuthContext";
-import { Database, LineChart, Activity, Brain } from "lucide-react";
+import { useAuth } from "@/hooks/use-auth";
+import { Activity, Brain, Database, LineChart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -51,7 +50,7 @@ const Dashboard = () => {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Welcome, {user?.name}</h1>
+        <h1 className="text-3xl font-bold mb-2">Welcome, {user?.full_name}</h1>
         <p className="text-gray-600">
           This dashboard helps you collect and analyze sensor data for activity
           recognition.

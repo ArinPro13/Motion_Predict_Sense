@@ -1,8 +1,7 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import ActivityPrediction from "@/components/prediction/ActivityPrediction";
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/hooks/use-auth";
+import { Navigate } from "react-router-dom";
 
 const PredictionPage = () => {
   const { isAuthenticated } = useAuth();
