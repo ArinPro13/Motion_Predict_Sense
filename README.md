@@ -57,7 +57,3 @@ Folder Structure
 ├── package.json        Dependencies and scripts
 ├── tailwind.config.ts  Tailwind CSS configuration
 └── vite.config.ts      Vite configuration
-
-License
--------
-Released under the MIT License.
