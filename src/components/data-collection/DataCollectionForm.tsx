@@ -35,6 +35,7 @@ import {
 } from "recharts";
 import { createClient } from "@supabase/supabase-js";
 import env from "@/env";
+import { useAuth } from "@/hooks/use-auth";
 
 const supabase = createClient(
   env.VITE_SUPABASE_URL,
@@ -69,7 +70,8 @@ const DataCollectionForm = () => {
   const chartDataRef = useRef<any[]>([]);
   const activityRef = useRef<string>("");
   const subActivityRef = useRef<string>("");
-  const { toast } = useToast();
+  const { toast } = useToast(); 
+  const {user} = useAuth();
 
   useEffect(() => {
     const config: MQTTConfig = {
@@ -146,6 +148,7 @@ const DataCollectionForm = () => {
           gyro_y: point.gyroscope.y,
           gyro_z: point.gyroscope.z,
           timestamp: Date.now(),
+          user_id: user?.id
         })),
       );
       if (error) throw error;

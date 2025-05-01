@@ -15,6 +15,7 @@ console.log(
   supabaseAnonKey ? "Key exists (not showing for security)" : "No key found"
 );
 
+//10402	1745932777492	-0.27	0.37	-0.87	121.33	129.41	-171.08	walking	walking-fast
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // age?: number | null;
