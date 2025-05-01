@@ -1,5 +1,4 @@
-
-import type { UserProfile } from '@/lib/supabase';
+import type { UserProfile } from "@/lib/supabase";
 
 export type AuthContextType = {
   user: UserProfile | null;

@@ -38,7 +38,7 @@ import env from "@/env";
 
 const supabase = createClient(
   env.VITE_SUPABASE_URL,
-  env.VITE_SUPABASE_ANON_KEY
+  env.VITE_SUPABASE_ANON_KEY,
 );
 
 const DEFAULT_ACTIVITIES = [
@@ -146,7 +146,7 @@ const DataCollectionForm = () => {
           gyro_y: point.gyroscope.y,
           gyro_z: point.gyroscope.z,
           timestamp: Date.now(),
-        }))
+        })),
       );
       if (error) throw error;
       toast({
@@ -381,8 +381,8 @@ const DataCollectionForm = () => {
                   selectedSubActivity || "No sub-activity"
                 } | ${sensorData.length} pts`
               : sensorData.length
-              ? `${sensorData.length} points collected`
-              : "Ready to start collection"}
+                ? `${sensorData.length} points collected`
+                : "Ready to start collection"}
           </p>
         </CardFooter>
       </Card>

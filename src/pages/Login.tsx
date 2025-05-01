@@ -1,9 +1,8 @@
-
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import LoginForm from '@/components/auth/LoginForm';
-import { useAuth } from '@/contexts/AuthContext';
-import { Activity } from 'lucide-react';
+import React from "react";
+import { Navigate } from "react-router-dom";
+import LoginForm from "@/components/auth/LoginForm";
+import { useAuth } from "@/contexts/AuthContext";
+import { Activity } from "lucide-react";
 
 const Login = () => {
   const { isAuthenticated } = useAuth();
@@ -24,11 +23,12 @@ const Login = () => {
           Activity recognition with ESP32 sensor data
         </p>
       </div>
-      
+
       <LoginForm />
-      
+
       <p className="mt-8 text-center text-sm text-muted-foreground">
-        Demo credentials: username: <span className="font-medium">demo</span>, password: any value
+        Demo credentials: username: <span className="font-medium">demo</span>,
+        password: any value
       </p>
     </div>
   );

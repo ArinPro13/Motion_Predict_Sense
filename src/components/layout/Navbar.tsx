@@ -1,9 +1,8 @@
-
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { useAuth } from '@/contexts/AuthContext';
-import { Activity, User, LogOut } from 'lucide-react';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { useAuth } from "@/contexts/AuthContext";
+import { Activity, User, LogOut } from "lucide-react";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -11,7 +10,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -27,26 +26,26 @@ const Navbar = () => {
             {user ? (
               <>
                 <div className="hidden md:flex items-center space-x-6">
-                  <Link 
-                    to="/dashboard" 
+                  <Link
+                    to="/dashboard"
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
                     Dashboard
                   </Link>
-                  <Link 
-                    to="/collect" 
+                  <Link
+                    to="/collect"
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
                     Collect Data
                   </Link>
-                  <Link 
-                    to="/predict" 
+                  <Link
+                    to="/predict"
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
                     Predict Activity
                   </Link>
-                  <Link 
-                    to="/train" 
+                  <Link
+                    to="/train"
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
                     Train Model
@@ -62,9 +61,9 @@ const Navbar = () => {
                       <span className="text-sm font-medium">{user.name}</span>
                     </div>
                   </div>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     onClick={handleLogout}
                     title="Logout"
                   >
@@ -74,8 +73,10 @@ const Navbar = () => {
               </>
             ) : (
               <div className="flex items-center space-x-2">
-                <Button variant="ghost" onClick={() => navigate('/login')}>Login</Button>
-                <Button onClick={() => navigate('/register')}>Register</Button>
+                <Button variant="ghost" onClick={() => navigate("/login")}>
+                  Login
+                </Button>
+                <Button onClick={() => navigate("/register")}>Register</Button>
               </div>
             )}
           </div>

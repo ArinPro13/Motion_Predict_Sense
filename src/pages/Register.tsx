@@ -1,9 +1,8 @@
-
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import RegisterForm from '@/components/auth/RegisterForm';
-import { useAuth } from '@/contexts/AuthContext';
-import { Activity } from 'lucide-react';
+import React from "react";
+import { Navigate } from "react-router-dom";
+import RegisterForm from "@/components/auth/RegisterForm";
+import { useAuth } from "@/contexts/AuthContext";
+import { Activity } from "lucide-react";
 
 const Register = () => {
   const { isAuthenticated } = useAuth();
@@ -24,7 +23,7 @@ const Register = () => {
           Create an account to start collecting sensor data
         </p>
       </div>
-      
+
       <RegisterForm />
     </div>
   );

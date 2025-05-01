@@ -7,8 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier": "npx prettier src --check",
+    "prettier:fix": "npm run prettier -- --write",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "npm run prettier:fix && npm run lint:fix"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -41,6 +45,7 @@
     "@radix-ui/react-tooltip": "^1.1.4",
     "@supabase/supabase-js": "^2.49.4",
     "@tanstack/react-query": "^5.56.2",
+    "caniuse-lite": "^1.0.30001716",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",

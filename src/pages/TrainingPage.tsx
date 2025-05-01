@@ -1,9 +1,8 @@
-
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import Navbar from '@/components/layout/Navbar';
-import ModelTraining from '@/components/training/ModelTraining';
-import { useAuth } from '@/contexts/AuthContext';
+import React from "react";
+import { Navigate } from "react-router-dom";
+import Navbar from "@/components/layout/Navbar";
+import ModelTraining from "@/components/training/ModelTraining";
+import { useAuth } from "@/contexts/AuthContext";
 
 const TrainingPage = () => {
   const { isAuthenticated } = useAuth();
