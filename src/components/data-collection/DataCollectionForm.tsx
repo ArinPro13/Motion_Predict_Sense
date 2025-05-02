@@ -147,7 +147,7 @@ const DataCollectionForm = () => {
           gyro_x: point.gyroscope.x,
           gyro_y: point.gyroscope.y,
           gyro_z: point.gyroscope.z,
-          timestamp: Date.now(),
+          timestamp: point.timestamp,
           user_id: user?.id
         })),
       );
