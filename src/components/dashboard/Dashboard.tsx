@@ -9,11 +9,16 @@ import {
 } from "@/components/ui/card";
 import { useAuth } from "@/hooks/use-auth";
 import { Activity, Brain, Database, LineChart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const { user } = useAuth();
-  console.log(user);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login");
+  };
 
   const dashboardItems = [
     {
@@ -49,12 +54,16 @@ const Dashboard = () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Welcome, {user?.full_name}</h1>
-        <p className="text-gray-600">
-          This dashboard helps you collect and analyze sensor data for activity
-          recognition.
-        </p>
+      <div className="flex justify-between items-center mb-8">
+        <div>
+          <h1 className="text-3xl font-bold mb-2">Welcome, {user?.full_name}</h1>
+          <p className="text-gray-600">
+            This dashboard helps you collect and analyze sensor data for activity recognition.
+          </p>
+        </div>
+        <Button variant="destructive" onClick={handleLogout}>
+          Logout
+        </Button>
       </div>
 
       <div className="mb-8">
@@ -88,10 +97,7 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {dashboardItems.map((item, index) => (
-          <Card
-            key={index}
-            className={`overflow-hidden border-t-4 border-t-primary`}
-          >
+          <Card key={index} className={`overflow-hidden border-t-4 border-t-primary`}>
             <div className={`${item.color} p-6 flex justify-center`}>
               {item.icon}
             </div>
